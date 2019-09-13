@@ -163,5 +163,31 @@ Observe que os métodos autenticados requerem o `comments` [escopo](https://gith
 > Todos os `<...>` parâmetros são opcionais. Se não for passado nenhum, todos os resultados disponíveis serão retornados.
 
 
+## Exemplo de uso
+
+```
+<?php
+require 'Instagram.php';
+use MetzWeb\Instagram\Instagram;
+$instagram = new Instagram(array(
+  'apiKey'      => 'YOUR_APP_KEY',
+  'apiSecret'   => 'YOUR_APP_SECRET',
+  'apiCallback' => 'YOUR_APP_CALLBACK'
+));
+$token = 'USER_ACCESS_TOKEN';
+$instagram->setAccessToken($token);
+$id = 'MEDIA_ID';
+$result = $instagram->likeMedia($id);
+if ($result->meta->code === 200) {
+  echo 'Success! The image was added to your likes.';
+} else {
+  echo 'Something went wrong :(';
+}
+```
+
+## Referência
+
+[Cosenary](https://github.com/cosenary/Instagram-PHP-API)
+
 
 
