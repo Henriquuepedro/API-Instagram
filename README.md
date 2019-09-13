@@ -2,11 +2,11 @@
 
 
 ## Introdução
-> A pouco tempo o instagram fez algumas alterações em sua API, sendo assim quebrando muitas aplicações e criando muitas cores de cabeça para os programador que utilizavam a API.
+> A pouco tempo o instagram fez algumas alterações em sua API, sendo assim quebrando muitas aplicações e criando muitas cores de cabeça para os programadores que utilizavam a API.
 
-> Com essa API é possível recuperar e usar diversas informações de sua conta ou até mesmo de conta de outros usuários, sendo dividido em métodos publicos e métodos do usuário autenticado.
+> Com essa API é possível recuperar e usar diversas informações de sua conta ou até mesmo de conta de outros usuários, sendo dividido em métodos públicos e métodos do usuário autenticado.
 
-> O retorno dessa API é feita por JSON.
+> O retorno dessa API é feito por JSON.
 
 * Framework utilizado: Laravel 5.8
 * PHP 7.1.3
@@ -30,7 +30,7 @@ $ composer require cosenary/instagram
 
 `new Instagram(<array> / <string>);`
 
-Utilize o `array` caso queira acessar dados do usuário autenticado.
+Utilize `array` caso queira acessar dados do usuário autenticado.
 
 ```
 $instagram = new Instagram(array(
@@ -40,7 +40,7 @@ $instagram = new Instagram(array(
 ));
 ```
 
-Utilize o `string` caso queira acessar apenas os dados publicos.
+Utilize `string` caso queira acessar apenas os dados públicos.
 ```
 $instagram = new Instagram('YOUR_APP_KEY');
 ```
@@ -58,21 +58,21 @@ getLoginUrl(array(
 
 Escopo 	  	| Legenda 					| Metodos
 --------- 	| ------ 					| ------
-`basic`     	| to use all user related methods [default] 	| `getUser()`, `getUserFeed()`, `getUserFollower()` etc.
-`comments`    	| to create or delete comments			| `getMediaComments()`, `addMediaComment()`, `deleteMediaComment()`
-`likes`		| to like and unlike items			| `getMediaLikes()`, `likeMedia()`, `deleteLikedMedia()`
-`relationships`	| to follow and unfollow users			| `modifyRelationship()`
+`basic`     	| Para usar todos os métodos relacionados ao usuário [Padrão] 	| `getUser()`, `getUserFeed()`, `getUserFollower()` etc.
+`comments`    	| Para fazer e excluir comentários			| `getMediaComments()`, `addMediaComment()`, `deleteMediaComment()`
+`likes`		| Para curtir e descurtir publicações			| `getMediaLikes()`, `likeMedia()`, `deleteLikedMedia()`
+`relationships`	| Para seguir e parar de seguir usuários			| `modifyRelationship()`
 
 ### Obter token [OAuth](https://tools.ietf.org/html/draft-ietf-oauth-v2-12)
 
 `getOAuthToken($code, <true>/<false>)`
-`true` : Returns only the OAuth token
-`false` *[default]* : Returns OAuth token and profile data of the authenticated user
+`true` : Retorna apenas o token OAuth
+`false` *[padrão]* : Retorna dados de token e perfil do usuário autenticado
 
 ### Set/Get token de acesso
 
 * `setAccessToken($token)` assina a variável para ser usada em outros métodos.
-* `getAccessToken()` Obtem o token de acesso, caso queira guarda-lo.
+* `getAccessToken()` Obtém o token de acesso, caso queira guarda-lo.
 
 
 ### Métodos do usuário autenticado
@@ -115,7 +115,7 @@ Observe que o método `modifyRelationship()` requer o relationships [escopo](htt
 #### Métodos públicos
 
 * `getMedia($id)`
-	* `authenticated users receive the info, whether the queried media is liked
+	* usuários autenticados recebem as informações, se a mídia consultada for curtida
 * `getPopularMedia()`
 * `searchMedia($lat, $lng, <$distance>, <$minTimestamp>, <$maxTimestamp>)`
 	* `$lat` e `$lng` são coordenadas e passados como `float`: `-27.5969`, `-48.5495`
@@ -133,7 +133,7 @@ Observe que o método `modifyRelationship()` requer o relationships [escopo](htt
 #### Métodos autenticados
 
 * `addMediaComment($id, $text)`
-	* **acesso restrito:** envie um email `apidevelopers@instagram.com` para ter acesso
+	* **acesso restrito:** envie um e-mail `apidevelopers@instagram.com` para ter acesso
 * `deleteMediaComment($id, $commentID)`
 	* Comentário deve ser de autoria do usuário autenticado
 
